@@ -1,12 +1,15 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get, Redirect } from '@nestjs/common';
+import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
+// import { AppService } from './app.service';
 
 @Controller()
+@ApiTags('App')
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+    // constructor(private readonly appService: AppService) { }
+    constructor() { }
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
+    @Get()
+    @Redirect('api')
+    @ApiOkResponse({ 'description': 'edirection to /api' })
+    getHello() { }
 }
