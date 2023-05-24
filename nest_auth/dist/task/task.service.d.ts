@@ -6,6 +6,6 @@ export declare class TaskService {
     private taskRepository;
     private userService;
     constructor(taskRepository: Repository<Task>, userService: UserService);
-    create(createTaskDto: CreateTaskDto, userId: number): unknown;
-    findAll(userId: number): unknown;
+    create(createTaskDto: CreateTaskDto, userId: number): Promise<Task>;
+    findAll(userId: number): Promise<Task[]>;
 }
